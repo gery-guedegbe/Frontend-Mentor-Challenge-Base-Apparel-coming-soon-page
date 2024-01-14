@@ -1,38 +1,238 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+
+:root{
+  /*Primary*/
+  --Desaturated-Red: hsl(0, 36%, 70%);
+  --Soft-Red: hsl(0, 93%, 68%);
+  /*Neutral*/
+
+  --Dark-Grayish-Red: hsl(0, 6%, 24%);
+  /*Gradients*/
+  --gradient1: Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%);
+  --gradient2: - Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body{
+  max-width: 1600px;
   min-height: 100vh;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  width: 800px;
+  height: 600px;
+  
+}
+
+.card-container{
+  display: flex;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.logo{
+  position: absolute;
+  margin-top: 40px;
+  padding: 0 40px ;
+}
+
+.left{
+  width: 50%;
+  background-image: url(assets/images/bg-pattern-desktop.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin-top: 80px;
+}
+
+.left .text{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left .title{
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.4rem;
+  line-height: 6vh;
+}
+
+.title span{
+  color: var(--Desaturated-Red);
+  font-weight: 300;
+}
+
+.error-message{
+  font-size: 0.8rem;
+  color: var(--Soft-Red);
+  margin: -20px 10px;
+  padding: 5px 0;
+}
+
+form input{
+  position: relative;
+  width: 80%;
+  padding: 12px;
+  border-radius: 15px;
+  border: 1px solid var(--Desaturated-Red);
+  outline: none;
+}
+
+input::placeholder{
+  color: var(--Desaturated-Red);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+form .input-block{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  cursor: pointer;
+  width: 55px;
+  height: 39px;
+  background-color: var(--Desaturated-Red);
+  border: 1px solid transparent;
+  border-radius: 20px;
+  transform: translateX(-40%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:hover{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.icon-erreur{
+  transform: translate(900%, -150%);
+}
+
+.description{
+  font-size: 0.9rem;
+  color: var(--Desaturated-Red);
+}
+
+.right{
+  width: 50%;
+}
+
+.right img{
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.attribution{
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 60px;
+  color: var(--Dark-Grayish-Red);
+}
+
+.attribution a{
+  text-decoration: none;
+  color: var(--Soft-Red); 
+}
+
+@media only screen and (max-width: 800px){
+  body{
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .card{
+    width:  100%;
+    height: 100%;
+  }
+
+  .logo{
+    position: relative;
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: -10px;
+  }
+
+  .left, .right{
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+  }
+
+  .right img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position:  center;
+  }
+
+  .left{
+    text-align: center;
+  }
+
+  form input{
+    width: 100%;
+    padding: 12px 40px;
+  }
+
+  input::placeholder{
+    display: flex;
+  }
+
+  button{
+    width: 30%;
+  }
+
+  .card-container{
+    flex-direction: column-reverse;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .text{
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left .title{
+    font-size: 1.5rem;
+    line-height: 4vh;
+  }
+
+  .error-message{
+    font-size: 0.6rem;
+    padding: 0px 4px;
+    display: flex;
+  }
+
+  .icon-erreur{
+    transform: translate(150%, -150%);
+  }
+
+  .attribution{
+    font-size: 0.6rem;
+    padding: 40px;
   }
 }
